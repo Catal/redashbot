@@ -35,5 +35,15 @@
       "size": "hobby"
     }
   },
-  "image": "heroku/nodejs"
+  "image": "heroku/nodejs",
+  "addons": [
+    {
+      "plan": "papertrail:choklad"
+    }
+  ],
+  "buildpacks": [
+    {
+      "url": "https://github.com/playwright-community/heroku-playwright-buildpack"
+    }
+  ]
 }
