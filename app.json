@@ -14,11 +14,11 @@
     },
     "REDASH_HOST": {
       "description": "URL of your Redash server, like https://your-redash-server.example.com",
-      "required": false
+      "required": true
     },
     "REDASH_HOST_ALIAS": {
       "description": "URL of your Redash server accessible from the bot.",
-      "required": false
+      "required": true
     },
     "REDASH_API_KEY": {
       "description": "API key of your Redash account",

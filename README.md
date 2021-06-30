@@ -28,7 +28,7 @@ Redashbot V2 is a open-source slack bot for [Redash](https://redash.io).
 - Table
   - `@botname <Query URL>#table`
     - e.g. `@redash https://your-redash-server.example.com/queries/1#table`
-    
+
 ## Setup
 
 You must create an app and set environment variables `SLACK_BOT_TOKEN` and `SLACK_SIGNING_SECRET`.
@@ -47,11 +47,11 @@ Slack's bot token.
 
 Slack's sigining secret.
 
-### REDASH_HOST and REDASH_API_KEY (optional)
+### REDASH_HOST and REDASH_API_KEY (required)
 
 Redash's URL and its API Key.
 
-## REDASH_HOST_ALIAS (optional)
+## REDASH_HOST_ALIAS (required)
 
 Redash' URL accessible from the bot.
 
@@ -97,21 +97,7 @@ Redashbot is just a node program.
 npm start
 ```
 
-### Docker
-
-[Docker image](https://hub.docker.com/r/yamitzky/redashbot) is provided. Currently, `latest` tag is used for v1(old), then you must use `2.0.0` or something like that.
-
-```
-docker run -it --rm -e SLACK_BOT_TOKEN=$SLACK_BOT_TOKEN -e SLACK_SIGNING_SECRET=$SLACK_SIGNING_SECRET -e REDASH_HOSTS_AND_API_KEYS=$REDASH_HOSTS_AND_API_KEYS -p 3000:3000 yamitzky/redashbot:2.0.0
-```
-
-docker-compose is also provided.
-
-```
-docker-compose up
-```
-
-### Heroku (NOT TESTED!!!!!!!!)
+### Heroku
 
 You can easy to deploy redashbot to Heroku, just click following button.
 
