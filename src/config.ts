@@ -1,4 +1,4 @@
-import { AppOptions } from "@slack/bolt";
+import { AppOptions, LogLevel } from "@slack/bolt";
 type Engine = "chromium" | "firefox" | "webkit" | "lambda-chromium";
 type Hosts = {
   [host: string]: {
@@ -54,5 +54,6 @@ export const config: Config & AppOptions = {
   sleep: process.env.SLEEP_TIME ? parseFloat(process.env.SLEEP_TIME) : 1000,
   hosts,
   socketMode: true,
+  logLevel: "debug" as LogLevel,
   appToken: process.env.SLACK_APP_TOKEN!,
 };
