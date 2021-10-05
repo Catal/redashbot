@@ -1,42 +1,42 @@
-import axios from 'axios'
+import axios from "axios";
 
 type QueryResult = {
   query_result: {
     data: {
-      rows: Record<string, any>[]
-      columns: { friendly_name: string; type: string; name: string }[]
-    }
-  }
-}
+      rows: Record<string, any>[];
+      columns: { friendly_name: string; type: string; name: string }[];
+    };
+  };
+};
 type Query = {
-  visualizations: Visualization[]
-  name: string
-}
+  visualizations: Visualization[];
+  name: string;
+};
 type Visualization = {
-  id: number
-  name: string
-}
+  id: number;
+  name: string;
+};
 type Dashboard = {
-  name: string
-  public_url: string
-}
+  name: string;
+  public_url: string;
+};
 
 export class Redash {
-  host: string
-  apiKey: string
-  alias: string
+  host: string;
+  apiKey: string;
+  alias: string;
   constructor({
     host,
     apiKey,
     alias,
   }: {
-    host: string
-    apiKey: string
-    alias: string
+    host: string;
+    apiKey: string;
+    alias: string;
   }) {
-    this.alias = alias
-    this.host = host
-    this.apiKey = apiKey
+    this.alias = alias;
+    this.host = host;
+    this.apiKey = apiKey;
   }
 
   async getQuery(id: string): Promise<Query> {
@@ -44,8 +44,8 @@ export class Redash {
       params: {
         api_key: this.apiKey,
       },
-    })
-    return res.data
+    });
+    return res.data;
   }
 
   async getQueryResult(id: string): Promise<QueryResult> {
@@ -53,8 +53,8 @@ export class Redash {
       params: {
         api_key: this.apiKey,
       },
-    })
-    return res.data
+    });
+    return res.data;
   }
 
   async getDashboard(id: string): Promise<Dashboard> {
@@ -62,7 +62,7 @@ export class Redash {
       params: {
         api_key: this.apiKey,
       },
-    })
-    return res.data
+    });
+    return res.data;
   }
 }
