@@ -1,3 +1,4 @@
+import { AppOptions } from "@slack/bolt";
 type Engine = "chromium" | "firefox" | "webkit" | "lambda-chromium";
 type Hosts = {
   [host: string]: {
@@ -45,11 +46,13 @@ if (process.env.REDASH_HOST) {
     }, {} as Record<string, { alias: string; key: string }>);
 }
 
-export const config: Config = {
+export const config: Config & AppOptions = {
   token: process.env.SLACK_BOT_TOKEN!,
   signingSecret: process.env.SLACK_SIGNING_SECRET!,
   port: process.env.PORT ? parseInt(process.env.PORT) : 3000,
   browser: (process.env.BROWSER || "chromium") as Engine,
   sleep: process.env.SLEEP_TIME ? parseFloat(process.env.SLEEP_TIME) : 1000,
   hosts,
+  socketMode: true,
+  appToken: process.env.SLACK_APP_TOKEN!,
 };
