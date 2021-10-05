@@ -1,4 +1,4 @@
-version: '2.0'
+version: "2.0"
 services:
   bot:
     build: .
@@ -14,6 +14,7 @@ services:
       - REDASH_HOSTS_AND_API_KEYS
       - SLACK_BOT_TOKEN
       - SLACK_SIGNING_SECRET
+      - SLACK_APP_TOKEN
       - PORT
       - BROWSER
       - SLEEP_TIME

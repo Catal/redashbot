@@ -14,6 +14,6 @@ import { config } from "./src/config";
 const app = createApp(config);
 (async () => {
   // Start your app
-  await app.start(config.port);
+  await app.start(config.port || 3000);
   console.log(`⚡️ Bolt app is running @ ${config.port}!`);
 })();
