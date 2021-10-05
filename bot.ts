@@ -9,8 +9,6 @@ const receiver = new ExpressReceiver({
 const app = createApp({ ...config, receiver });
 
 receiver.router.get("/", (_, res) => {
-  console.log(process.env.SLACK_BOT_TOKEN!);
-  app.client.chat.postMessage({ text: "test", channel: "#test_bot" });
   res.send("ok");
 });
 (async () => {
