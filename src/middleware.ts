@@ -15,17 +15,14 @@ export function mention(): Middleware<SlackEventMiddlewareArgs<"message">> {
         "Cannot match direct mentions of the app without a bot user ID. Ensure authorize callback returns a botUserId."
       );
     }
-    if (message.subtype !== "me_message" && message.subtype !== "bot_message") {
-      console.log(message);
+    const text = (message as any)?.text;
+
+    if (!text) {
+      console.log("no text: ", message);
       return;
     }
 
-    if (!message.text) {
-      return;
-    }
-
-    const text = message.text.trim();
-    const matches = slackLink.exec(text);
+    const matches = slackLink.exec(text.trim());
     if (
       matches?.groups?.type !== "@" ||
       matches?.groups?.link !== context.botUserId
