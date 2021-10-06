@@ -49,6 +49,11 @@ export function createApp(config: Config & AppOptions) {
     );
     app.event(
       "message",
+      handleText(new RegExp(`${host}/queries/([0-9]+)/source#([0-9]+)`)),
+      handleRecordChart(ctx)
+    );
+    app.event(
+      "message",
       handleText(new RegExp(`${host}/dashboard/([^?/|>]+)`)),
       handleRecordDashboard(ctx)
     );
