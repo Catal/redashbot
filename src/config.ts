@@ -1,4 +1,8 @@
 import { AppOptions, LogLevel } from "@slack/bolt";
+import dotenv from "dotenv";
+
+dotenv.config({ path: ".env" });
+
 type Engine = "chromium" | "firefox" | "webkit" | "lambda-chromium";
 type Hosts = {
   [host: string]: {
@@ -54,6 +58,6 @@ export const config: Config & AppOptions = {
   sleep: process.env.SLEEP_TIME ? parseFloat(process.env.SLEEP_TIME) : 1000,
   hosts,
   socketMode: true,
-  // logLevel: "debug" as LogLevel,
+  logLevel: (process.env.NODE_ENV == "dev" ? "debug" : "info") as LogLevel,
   appToken: process.env.SLACK_APP_TOKEN!,
 };
