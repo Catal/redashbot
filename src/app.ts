@@ -13,10 +13,6 @@ import { mention } from "./middleware";
 export function createApp(config: Config & AppOptions) {
   const app = new BoltApp(config);
 
-  // app.event<"app_mention">("app_mention", mention(), handleHelp);
-  app.message("hello", async ({ message, say }) => {
-    await say(`Hello world`);
-  });
   app.message("help", mention(), handleHelp);
 
   for (const [host, { alias, key: apiKey }] of Object.entries(config.hosts)) {
