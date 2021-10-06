@@ -4,6 +4,7 @@
   "description": "Slack Bot for Redash",
   "main": ".build/bot.js",
   "scripts": {
+    "dev": "NODE_ENV=dev nodemon",
     "start": "ts-node bot.ts",
     "build": "tsc"
   },
