@@ -43,6 +43,10 @@ Then, `npm start` or `docker run yamitzky/redashbot:2.0.0` to start. If you use 
 
 Slack's bot token.
 
+### SLACK_APP_TOKEN (required)
+
+Slack's app token.
+
 ### SLACK_SIGNING_SECRET (required)
 
 Slack's sigining secret.

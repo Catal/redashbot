@@ -8,6 +8,10 @@
       "description": "Slack bot token, for more detail see https://api.slack.com/bot-users",
       "required": true
     },
+    "SLACK_APP_TOKEN": {
+      "description": "Slack app token, for more detail see https://api.slack.com/bot-users",
+      "required": true
+    },
     "SLACK_SIGNING_SECRET": {
       "description": "Slack's sigining secret., for more detail see https://api.slack.com/bot-users",
       "required": true
