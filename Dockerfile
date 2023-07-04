@@ -1,10 +1,9 @@
-FROM mcr.microsoft.com/playwright:bionic
+FROM mcr.microsoft.com/playwright:v1.34.0-jammy
 
 USER root
 RUN apt-get update -y --fix-missing \
     && apt-get install --no-install-recommends -y \
         fonts-takao \
-        fonts-noto-color-emoji \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
