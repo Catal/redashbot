@@ -3,12 +3,8 @@ FROM mcr.microsoft.com/playwright:bionic
 USER root
 RUN apt-get update -y --fix-missing \
     && apt-get install --no-install-recommends -y \
-        fonts-noto \
-        fonts-noto-cjk \
+        fonts-takao \
         fonts-noto-color-emoji \
-        fonts-noto-hinted \
-        fonts-noto-mono \
-        fonts-noto-unhinted \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
