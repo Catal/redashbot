@@ -1,5 +1,7 @@
 build:
   docker:
+    web: Dockerfile
     worker: Dockerfile
 run:
+  web: ./node_modules/.bin/ts-node bot.ts
   worker: ./node_modules/.bin/ts-node bot.ts
